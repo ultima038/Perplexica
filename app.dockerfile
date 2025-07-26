@@ -3,6 +3,9 @@ FROM node:20.18.0-slim AS builder
 WORKDIR /home/perplexica
 
 COPY package.json yarn.lock ./
+# --- NOTRE AJOUT N°1 : On copie le modèle ---
+COPY sample.config.toml ./
+# --- NOTRE AJOUT N°2 : On crée le vrai fichier config ---
 RUN cp sample.config.toml config.toml
 RUN yarn install --frozen-lockfile --network-timeout 600000
 
