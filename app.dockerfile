@@ -3,6 +3,7 @@ FROM node:20.18.0-slim AS builder
 WORKDIR /home/perplexica
 
 COPY package.json yarn.lock ./
+RUN cp sample.config.toml config.toml
 RUN yarn install --frozen-lockfile --network-timeout 600000
 
 COPY tsconfig.json next.config.mjs next-env.d.ts postcss.config.js drizzle.config.ts tailwind.config.ts ./
