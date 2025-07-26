@@ -17,6 +17,7 @@ services:
     environment:
       - SEARXNG_API_URL=http://searxng:8080
       - DATA_DIR=/home/perplexica
+    command: node server.js -H 0.0.0.0
     ports:
       - 3000:3000
     networks:
